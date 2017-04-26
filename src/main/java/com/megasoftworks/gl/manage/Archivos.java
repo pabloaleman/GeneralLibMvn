@@ -4,8 +4,11 @@
  */
 package com.megasoftworks.gl.manage;
 
-import java.io.*;
-import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -13,7 +16,6 @@ import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
-import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 
 
 /**
@@ -346,9 +348,9 @@ public class Archivos {
      * @param path el path dado para cargar los archivos
      * @return Ok una bandera que indica si existe o no el archivo
      */
-    public static List retornaNombresArchivosVectorNoRecOmiteOrdena(String path, String start) {
+    public static List<String> retornaNombresArchivosVectorNoRecOmiteOrdena(String path, String start) {
         java.util.TreeMap<String, String> mapa = new TreeMap<String, String>();
-        List vector = new ArrayList();
+        List<String> vector = new ArrayList<String>();
         path = path.substring(0, path.length() - 1);
         File fichero = new File(path);
         if (fichero.exists()) {
@@ -361,7 +363,7 @@ public class Archivos {
                     }
                 }
                 logger.info("" + mapa.size());
-                for (Iterator it2 = mapa.keySet().iterator(); it2.hasNext();) {
+                for (Iterator<String> it2 = mapa.keySet().iterator(); it2.hasNext();) {
                     String s = (String) it2.next();
                     vector.add(mapa.get(s));
                     //EmisionEmpresa emision = mapa.get(s)
@@ -387,9 +389,9 @@ public class Archivos {
      * @param path el path dado para cargar los archivos
      * @return Ok una bandera que indica si existe o no el archivo
      */
-    public static List retornaNombresArchivosVectorNoRecOmiteOrdenaOmiteEnd(String path, String end) {
+    public static List<String> retornaNombresArchivosVectorNoRecOmiteOrdenaOmiteEnd(String path, String end) {
         java.util.TreeMap<String, String> mapa = new TreeMap<String, String>();
-        List vector = new ArrayList();
+        List<String> vector = new ArrayList<String>();
         path = path.substring(0, path.length() - 1);
         File fichero = new File(path);
         if (fichero.exists()) {
@@ -402,7 +404,7 @@ public class Archivos {
                     }
                 }
                 logger.info("" + mapa.size());
-                for (Iterator it2 = mapa.keySet().iterator(); it2.hasNext();) {
+                for (Iterator<String> it2 = mapa.keySet().iterator(); it2.hasNext();) {
                     String s = (String) it2.next();
                     vector.add(mapa.get(s));
                 }
@@ -425,8 +427,8 @@ public class Archivos {
      * @param path el path dado para cargar los archivos
      * @return Ok una bandera que indica si existe o no el archivo
      */
-    public static List retornaNombresArchivosVectorNoRecOmiteEnd(String path, String end) {
-        List vector = new ArrayList();
+    public static List<String> retornaNombresArchivosVectorNoRecOmiteEnd(String path, String end) {
+        List<String> vector = new ArrayList<String>();
         path = path.substring(0, path.length() - 1);
         File fichero = new File(path);
         if (fichero.exists()) {
@@ -457,8 +459,8 @@ public class Archivos {
      * @param path el path dado para cargar los archivos
      * @return Ok una bandera que indica si existe o no el archivo
      */
-    public static List retornaNombresArchivosVectorNoRecOmiteEndNoAP(String path, String end) {
-        List vector = new ArrayList();
+    public static List<String> retornaNombresArchivosVectorNoRecOmiteEndNoAP(String path, String end) {
+        List<String> vector = new ArrayList<String>();
         path = path.substring(0, path.length() - 1);
         File fichero = new File(path);
         if (fichero.exists()) {
@@ -489,8 +491,8 @@ public class Archivos {
      * @param path el path dado para cargar los archivos
      * @return Ok una bandera que indica si existe o no el archivo
      */
-    public static List retornaNombresArchivosVectorNoRecOmiteStartEnd(String path, String start, String end) {
-        List vector = new ArrayList();
+    public static List<String> retornaNombresArchivosVectorNoRecOmiteStartEnd(String path, String start, String end) {
+        List<String> vector = new ArrayList<String>();
         path = path.substring(0, path.length() - 1);
         File fichero = new File(path);
         if (fichero.exists()) {

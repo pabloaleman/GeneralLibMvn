@@ -4,13 +4,12 @@
  */
 package com.megasoftworks.gl.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
 import org.apache.log4j.Logger;
+
 import com.megasoftworks.gl.manage.Archivos;
 
 /**

@@ -17,8 +17,8 @@ public class Messages {
     private String warnPath;
     private String regex;
     
-    public static HashMap<Integer, Message> ERRO = new HashMap();
-    public static HashMap<Integer, Message> WARN = new HashMap();
+    public static HashMap<Integer, Message> ERRO = new HashMap<Integer, Message>();
+    public static HashMap<Integer, Message> WARN = new HashMap<Integer, Message>();
     
     public Messages(String regex, String errorPath, String warnPath) {
         this.regex = regex;

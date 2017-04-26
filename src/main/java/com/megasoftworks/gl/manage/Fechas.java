@@ -643,6 +643,7 @@ public class Fechas {
         Date myDate = null;
         try {
             myDate = myDateFormat.parse(fecha);
+            ok = myDate != null; 
         } catch (ParseException e) {
              ok = false;
         }
