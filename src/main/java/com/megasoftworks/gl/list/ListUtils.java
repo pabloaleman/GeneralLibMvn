@@ -11,4 +11,12 @@ public class ListUtils {
 		}
 		return retorno;
 	}
+	
+	public static List<Double> stringArrayToDoubleList(String[] lista) {
+		List<Double> retorno = new ArrayList<>();
+		for(String n : lista) {
+			retorno.add(Double.parseDouble(n));
+		}
+		return retorno;
+	}
 }
