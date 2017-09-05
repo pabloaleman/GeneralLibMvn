@@ -7,6 +7,7 @@ package com.megasoftworks.gl.manage;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import org.apache.log4j.Logger;
@@ -847,14 +848,28 @@ public class Fechas {
     }*/
     
         
-
-    /**
-     * momentoString.
-     * Funcion que retorna la fecha al momento con hora minutos y segundos.
-     * @return la fecha en String.
-     */
-    /*public static String momentoString() {
-        return dateToString(new Date());
-    }*/
+    
+    public static Date setInstanceValueCalendar(Date fecha, int hour, int instance) {
+    	Calendar calendar = Calendar.getInstance();
+    	calendar.setTime(fecha);
+    	calendar.set(instance, hour);
+    	return calendar.getTime();
+    }
+    
+    public static Date enceraHoMiSe(Date fecha) {
+    	fecha = setInstanceValueCalendar(fecha, 0, Calendar.HOUR);
+    	fecha = setInstanceValueCalendar(fecha, 0, Calendar.MINUTE);
+    	fecha = setInstanceValueCalendar(fecha, 0, Calendar.SECOND);
+    	fecha = setInstanceValueCalendar(fecha, 0, Calendar.MILLISECOND);
+    	return fecha;
+    }
+    
+    public static Date finHoMiSe(Date fecha) {
+    	fecha = setInstanceValueCalendar(fecha, 23, Calendar.HOUR);
+    	fecha = setInstanceValueCalendar(fecha, 59, Calendar.MINUTE);
+    	fecha = setInstanceValueCalendar(fecha, 59, Calendar.SECOND);
+    	fecha = setInstanceValueCalendar(fecha, 0, Calendar.MILLISECOND);
+    	return fecha;
+    }
 
 }
