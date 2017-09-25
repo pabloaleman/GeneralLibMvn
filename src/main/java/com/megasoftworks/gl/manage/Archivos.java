@@ -17,6 +17,8 @@ import java.util.TreeMap;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import com.megasoftworks.gl.exceptions.MoverArchivosException;
+
 
 /**
  *
@@ -106,11 +108,11 @@ public class Archivos {
         return lectura.toString();
     }
     
-    public static void fileMove(String source, String destination) {
+    public static void fileMove(String source, String destination) throws MoverArchivosException {
         try {
         	FileUtils.moveFile(new File(source), new File(destination));
         } catch (IOException ex) {
-            logger.error("Problema al mover el archivo: " + source + " " + ex.getMessage());
+        	throw new MoverArchivosException(ex.getMessage());
         }
         
     }
