@@ -7,7 +7,7 @@ public class Averages {
 	public static <T extends Promediable> Double getLogarithmicAverage(List<T> datos) {
 		double valor = 0.0;
 		for(Promediable promediable : datos) {
-			double exp = promediable.getToAvgValue() / 10.0;
+			Double exp = promediable.getToAvgValue() / 10.0;
 			double suma = Math.pow(10, exp);
 			valor = valor + suma;
 		}
